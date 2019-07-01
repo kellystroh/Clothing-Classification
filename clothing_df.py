@@ -44,7 +44,7 @@ df_idx = set(df.index)
 # include only items present in BOTH indices
 df = df[df.index.isin(pic_idx)]
 pic_df = pic_df[pic_df.index.isin(df_idx)]
-print(pic_df)
+print(df)
 '''
 #double check this is True:
 pic_idx = df_idx
