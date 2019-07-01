@@ -31,10 +31,13 @@ def problematic_images(files):
     return bad_list
 
 images_arr = get_pixels(pic_arr)
-idx_series = file_series.str.replace('.jpg', "").astype(int)
-pix_series = pd.Series(images_col)
 
-pic_df0 = pd.DataFrame(pix_series, index=idx_series, columns=['Pix'])
-pic_df = pic_df[pic_df['Pix'].notnull()]
+pic_df0 = pd.DataFrame(images_arr, index=idx_series.astype(int), dtype='int')
+pic_df = pic_df0[pic_df0.notnull()]
 
-clothing_df = df.merge(pic_df, how="inner", left_on='id', right_on=pic_df.index)
+pic_idx = set(pic_df.index)
+df_idx = set(df.index)
+
+df = df[df.index.isin(pic_idx)]
+pic_df = pic_df[pic_df.index.isin(df_idx)]
+
