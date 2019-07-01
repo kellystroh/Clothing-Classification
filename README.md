@@ -1,2 +1,2 @@
-# Clothing-Classification
-Classifying clothing types from images 
+# Clothing-Clusters
+Clustering clothing types from images 
