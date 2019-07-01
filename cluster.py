@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.cluster import AgglomerativeClustering
 import clothing_df as df
 
-clust = AgglomerativeClustering(n_clusters=3).fit(wear_pics)
+clust = AgglomerativeClustering(n_clusters=3).fit(df.wear_pics)
 
 
 a = df.wear_pics.index
