@@ -5,11 +5,13 @@ import glob
 
 # import kaggle dataset 
 df = pd.read_csv('data/fashion_data/styles.csv', error_bad_lines=False)
+df.set_index('id', inplace=True)
 
 # get list of file names for images
 path = r'/Users/Kelly/galvanize/week8/data/fashion_data/data_images/images'
 files = glob.glob(path + "/*.jpg")
-idx_series = pd.Series(files).str.replace('/Users/Kelly/galvanize/week8/data/fashion_data/data_images/images', '').str.replace('.jpg', '')
+idx_series = pd.Series(files, dtype=object).str.replace('/Users/Kelly/galvanize/week8/data/fashion_data/images/', '').str.replace('.jpg', '')
+
 pic_arr = np.array(files)
 
 def get_pixels(files):
