@@ -16,7 +16,6 @@ idx_series = pd.Series(files, dtype=object).str.replace('/home/ubuntu/Clothing-C
 
 pic_arr = np.array(files)
 #### pic_arr = np.array(files)[0:300]
-print(pic_arr)
 
 def get_pixels(files):
     r = np.zeros((len(files),14400))
@@ -62,5 +61,6 @@ wearable_df = df[df['masterCategory'].isin(wearable_list)]
 wear_idx = list(wearable_df.index)
 wear_pics = pic_df[pic_df.index.isin(wear_idx)]
 
+print(wear_pics.head())
 # double check this is True
 # set(wear_pics.index) == set(wearable_df.index)
