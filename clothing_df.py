@@ -55,12 +55,11 @@ wearable_list = ['Apparel', 'Accessories', 'Footwear']
 wearable_df = df[df['masterCategory'].isin(wearable_list)]
 
 wear_idx = list(wearable_df.index)
-wear_pics = pic_df[pic_df.index.isin(wear_idx)]
+print( pic_df[pic_df.index.isin(wear_idx)] )
 
 # double check this is True
 # set(wear_pics.index) == set(wearable_df.index)
 ########
-print(wear_pics.head())
 
 # from sklearn.cluster import AgglomerativeClustering
 
