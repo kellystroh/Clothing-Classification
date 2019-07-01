@@ -12,7 +12,7 @@ path = r'/home/ubuntu/Clothing-Clusters/data/fashion_data/data_images/images'
 #### path = r'/Users/Kelly/galvanize/week8/data/fashion_data/images'
 
 files = glob.glob(path + "/*.jpg")
-idx_series = pd.Series(files, dtype=object).str.replace('/home/ubuntu/Clothing-Clusters/data/fashion_data/images/', '').str.replace('.jpg', '')
+idx_series = pd.Series(files, dtype=object).str.replace('/home/ubuntu/Clothing-Clusters/data/fashion_data/data_images/images/', '').str.replace('.jpg', '')
 
 pic_arr = np.array(files)
 #### pic_arr = np.array(files)[0:300]
