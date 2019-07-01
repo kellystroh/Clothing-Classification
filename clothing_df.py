@@ -7,9 +7,9 @@ import glob
 df = pd.read_csv('data/fashion_data/styles.csv', error_bad_lines=False)
 
 # get list of file names for images
-path = r'/Users/Kelly/galvanize/week8/data/fashion_data/images'
+path = r'/Users/Kelly/galvanize/week8/data/fashion_data/data_images/images'
 files = glob.glob(path + "/*.jpg")
-idx_series = pd.Series(files).str.replace('/Users/Kelly/galvanize/week8/data/fashion_data/images/', '').str.replace('.jpg', '')
+idx_series = pd.Series(files).str.replace('/Users/Kelly/galvanize/week8/data/fashion_data/data_images/images', '').str.replace('.jpg', '')
 pic_arr = np.array(files)
 
 def get_pixels(files):
@@ -30,6 +30,7 @@ def problematic_images(files):
             bad_list.append(files[i])
     return bad_list
 
+# make clothing df
 images_arr = get_pixels(pic_arr)
 
 pic_df0 = pd.DataFrame(images_arr, index=idx_series.astype(int), dtype='int')
@@ -38,6 +39,21 @@ pic_df = pic_df0[pic_df0.notnull()]
 pic_idx = set(pic_df.index)
 df_idx = set(df.index)
 
+# include only items present in BOTH indices
 df = df[df.index.isin(pic_idx)]
 pic_df = pic_df[pic_df.index.isin(df_idx)]
 
+'''
+#double check this is True:
+pic_idx = df_idx
+'''
+
+# make a wearable subset
+wearable_list = ['Apparel', 'Accessories', 'Footwear']
+wearable_df = df[df['masterCategory'].isin(wearable_list)]
+
+wear_idx = list(wearable_df.index)
+wear_pics = pic_df[pic_df.index.isin(wear_idx)]
+
+# double check this is True
+# set(wear_pics.index) == set(wearable_df.index)
