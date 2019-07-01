@@ -1,5 +1,7 @@
 # Clothing-Clusters
-A challenge in building and maintaining websites is how to organize content into a logical, user-friendly structure. This is particularly relevant for retail websites, as sales are contingent upon customers being able to find items they may be interested in purchasing. To address an instance of this challenge, I use a collection of over 40,000 images of clothing and 
+A challenge in building and maintaining websites is how to organize content into a logical, user-friendly structure. This is particularly relevant for retail websites, as sales are contingent upon customers being able to find items they may be interested in purchasing. To address an instance of this challenge, I use a collection of over 40,000 images of clothing and other goods. 
+
+
 Clustering clothing types from 40,000 images. 
 
 
