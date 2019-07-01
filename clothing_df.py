@@ -44,7 +44,7 @@ df_idx = set(df.index)
 # include only items present in BOTH indices
 df = df[df.index.isin(pic_idx)]
 pic_df = pic_df[pic_df.index.isin(df_idx)]
-
+print(pic_df)
 '''
 #double check this is True:
 pic_idx = df_idx
@@ -55,7 +55,7 @@ wearable_list = ['Apparel', 'Accessories', 'Footwear']
 wearable_df = df[df['masterCategory'].isin(wearable_list)]
 
 wear_idx = list(wearable_df.index)
-print( pic_df[pic_df.index.isin(wear_idx)] )
+pic_df[pic_df.index.isin(wear_idx)]
 
 # double check this is True
 # set(wear_pics.index) == set(wearable_df.index)
