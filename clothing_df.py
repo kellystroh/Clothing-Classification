@@ -62,11 +62,11 @@ wear_pics = pic_df[pic_df.index.isin(wear_idx)]
 
 from sklearn.cluster import AgglomerativeClustering
 
-clust = AgglomerativeClustering(n_clusters=3).fit(df.wear_pics)
+clust = AgglomerativeClustering(n_clusters=3).fit(wear_pics)
 
 
-a = df.wear_pics.index
-b = df.wearable_df.loc[a,:]
+a = wear_pics.index
+b = wearable_df.loc[a,:]
 c = clust.labels_
 
 b['category_group'] = b['masterCategory'].apply(lambda x: 0 if x =='Apparel' else (1 if x=='Accessories' else 2))
