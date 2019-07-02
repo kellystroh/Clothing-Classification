@@ -14,7 +14,7 @@ path = r'/home/ubuntu/Clothing-Clusters/data/images'
 files = glob.glob(path + "/*.jpg")
 idx_series = pd.Series(files, dtype=object).str.replace('/home/ubuntu/Clothing-Clusters/data/images/', '').str.replace('.jpg', '')
 
-pic_arr = np.array(files[0:20000])
+pic_arr = np.array(files[0:30000])
 #### pic_arr = np.array(files)[0:300]
 
 def get_pixels(files):
@@ -38,7 +38,7 @@ def problematic_images(files):
 # make clothing df
 images_arr = get_pixels(pic_arr)
 
-pic_df0 = pd.DataFrame(images_arr, index=idx_series[0:20000].astype(int), dtype='int')
+pic_df0 = pd.DataFrame(images_arr, index=idx_series[0:30000].astype(int), dtype='int')
 #### pic_df0 = pd.DataFrame(images_arr, index=idx_series[0:300].astype(int), dtype='int')
 pic_df = pic_df0[pic_df0.notnull()]
 
