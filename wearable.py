@@ -23,4 +23,4 @@ wearable_df['colors'] = wearable_df['masterCategory'].apply(lambda x: masterCat_
 
 fig, ax = plt.subplots(figsize=(6,6))
 ax.scatter( *wearables_pca.T, s=.25 , color=wearable_df['colors'])
-fig.figsave('fig6.png')
+fig.savefig('fig6.png')
