@@ -27,7 +27,7 @@ pca = PCA(n_components=2)
 #apparel_pca = pca.fit_transform(apparel_img[0:10000])
 apparel_pca = pca.fit_transform(BW_apparel_img[0:10000])
 
-apparel_subset_colors = {'Bottomwear':'teal','Topwear':'orange','Dress':'magenta', 'Saree':'grey', 'Loungewear and Nightwear':'cyan', 'Innerwear':'red', 'Apparel Set':'cyan', 'Socks':'cyan'  }
+apparel_subset_colors = {'Bottomwear':'#808080','Topwear':'#008B8B','Dress':'#8B0000', 'Saree':'orange', 'Loungewear and Nightwear':'#F08080', 'Innerwear':'#BA55D3', 'Apparel Set':'orange', 'Socks':'orange'  }
 BW_apparel_df['colors'] = BW_apparel_df.loc[:,'subCategory'].apply(lambda x: apparel_subset_colors[x])
 
 fig, ax = plt.subplots(figsize=(12,6))
@@ -38,7 +38,7 @@ fig.savefig('fig1.png')
 #shoe_pca = pca.fit_transform(footwear_img[0:10000])
 shoe_pca = pca.fit_transform(BW_footwear_img[0:10000])
 
-footwear_subset_colors = {'Shoes':'#F4A460','Sandal':'#008B8B','Flip Flops':'#8B0000'}
+footwear_subset_colors = {'Shoes':'#808080','Sandal':'#8B0000','Flip Flops':'#BA55D3'}
 BW_footwear_df['colors'] = BW_footwear_df.loc[:,'subCategory'].apply(lambda x: footwear_subset_colors[x])
 
 fig, ax = plt.subplots(figsize=(12,6))
