@@ -9,7 +9,7 @@ df = pd.read_csv('data/styles.csv', error_bad_lines=False)
 
 
 all_img = []
-for i, ix in enumerate( df.index ):
+for i, ix in enumerate( df.id ):
     if i%1000==0:
         print(i, len(df))
     

@@ -26,5 +26,5 @@ BW_accessory_df['colors'] = BW_accessory_df.loc[:,'subCategory'].apply(lambda x:
 
 fig3, ax = plt.subplots(figsize=(6,6))
 #ax[0].scatter( *shoe_pca.T, s=.5 , color=footwear_df['colors'][0:10000])
-ax.scatter( *accessory_pca.T, s=.5, color=BW_accessory_df['colors']);
+ax.scatter( *accessory_pca.T, s=.2, color=BW_accessory_df['colors']);
 fig3.savefig('fig3.png')

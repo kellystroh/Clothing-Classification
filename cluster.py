@@ -10,6 +10,14 @@ from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 
 ### ALL
+full_pca = pca.fit_transform(bw_img)
+masterCat_colors = {'Apparel':'#008B8B','Accessories':'#808080','Footwear':'#8B0000', 'Personal Care':'magenta', 'Free Items':'magenta', 'Sporting Goods':'magenta', 'Home':'magenta'}
+df['colors'] = df['masterCategory'].apply(lambda x: masterCat_colors[x])
+fig0, ax = plt.subplots(figsize=(6,6))
+ax.scatter( *full_pca.T, s=.25 , color=df['colors'])
+fig0.savefig('fig0.png')
+
+
 
 
 ### MAKE SUBSET FOR APPAREL
@@ -33,7 +41,7 @@ apparel_pca = pca.fit_transform(BW_apparel_img)
 apparel_subset_colors = {'Bottomwear':'#808080','Topwear':'#008B8B','Dress':'#8B0000', 'Saree':'orange', 'Loungewear and Nightwear':'#F08080', 'Innerwear':'#BA55D3', 'Apparel Set':'orange', 'Socks':'orange'  }
 BW_apparel_df['colors'] = BW_apparel_df.loc[:,'subCategory'].apply(lambda x: apparel_subset_colors[x])
 
-fig1, ax = plt.subplots(figsize=(12,6))
+fig1, ax = plt.subplots(figsize=(6,6))
 #ax[0].scatter( *BW_apparel_pca.T, s=.35 , color=apparel_df['colors'][0:10000])
 ax.scatter( *apparel_pca.T, s=.35 , color=BW_apparel_df['colors'])
 fig1.savefig('fig1.png')
@@ -45,7 +53,7 @@ shoe_pca = pca.fit_transform(BW_footwear_img)
 footwear_subset_colors = {'Shoes':'#808080','Sandal':'#8B0000','Flip Flops':'#BA55D3'}
 BW_footwear_df['colors'] = BW_footwear_df.loc[:,'subCategory'].apply(lambda x: footwear_subset_colors[x])
 
-fig2, ax = plt.subplots(figsize=(12,6))
+fig2, ax = plt.subplots(figsize=(6,6))
 #ax[0].scatter( *shoe_pca.T, s=.5 , color=footwear_df['colors'][0:10000])
 ax.scatter( *shoe_pca.T, s=.5, color=BW_footwear_df['colors']);
 fig2.savefig('fig2.png')
@@ -60,7 +68,7 @@ acc_sub_colors = {'Accessories':'orange', 'Bags':'#BA55D3', 'Belts':'purple', 'C
        'Umbrellas':'orange', 'Wallets':'#F08080', 'Watches':'#808080', 'Water Bottle':'orange'}
 BW_accessory_df['colors'] = BW_accessory_df.loc[:,'subCategory'].apply(lambda x: acc_sub_colors[x])
 
-fig3, ax = plt.subplots(figsize=(12,6))
+fig3, ax = plt.subplots(figsize=(6,6))
 #ax[0].scatter( *shoe_pca.T, s=.5 , color=footwear_df['colors'][0:10000])
 ax.scatter( *shoe_pca.T, s=.5, color=BW_footwear_df['colors']);
 fig3.savefig('fig3.png')
@@ -70,6 +78,27 @@ fig3.savefig('fig3.png')
 all_tsne = TSNE(n_components=2, n_iter=1000, perplexity=100).fit_transform(bw_img)
 colors = {'Apparel':'orange','Accessories':'teal','Footwear':'red', 'Personal Care':'grey', 'Free Items':'yellow', 'Sporting Goods':'black', 'Home':'magenta'}
 df['color'] = df.loc[:,'masterCategory'].apply(lambda x: colors[x])
-fig4, ax = plt.subplots(figsize=(12,6))
+fig4, ax = plt.subplots(figsize=(6,6))
 ax.scatter(XX[:,0],XX[:,1], s=.2, color= df['color'])
 fig4.savefig('fig4.png')
+
+'''
+
+## clust = AgglomerativeClustering(n_clusters=3).fit(df.wear_pics[0:100])
+clust = AgglomerativeClustering(n_clusters=3).fit(df.wear_pics)
+
+## a = df.wear_pics[0:100].index
+a = df.wear_pics.index
+b = df.wearable_df.loc[a,:]
+c = clust.labels_
+
+b['category_group'] = b['masterCategory'].apply(lambda x: 0 if x =='Apparel' else (1 if x=='Accessories' else 2))
+b['cluster_group'] = c
+d = b[['category_group', 'cluster_group']]
+
+d[d['category_group']==0].groupby('cluster_group').count() 
+d[d['category_group']==1].groupby('cluster_group').count() 
+d[d['category_group']==2].groupby('cluster_group').count()
+
+
+'''
