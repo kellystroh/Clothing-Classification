@@ -18,7 +18,7 @@ pca = PCA(n_components=2)
 #shoe_pca = pca.fit_transform(footwear_img[0:10000])
 shoe_pca = pca.fit_transform(BW_footwear_img)
 
-footwear_subset_colors = {'Shoes':'#808080','Sandal':'#8B0000','Flip Flops':'#BA55D3'}
+footwear_subset_colors = {'Shoes':'blue','Sandal':'grey','Flip Flops':'red'}
 BW_footwear_df['colors'] = BW_footwear_df.loc[:,'subCategory'].apply(lambda x: footwear_subset_colors[x])
 
 fig2, ax = plt.subplots(figsize=(6,6))

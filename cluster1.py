@@ -18,7 +18,7 @@ pca = PCA(n_components=2)
 #apparel_pca = pca.fit_transform(apparel_img[0:10000])
 apparel_pca = pca.fit_transform(BW_apparel_img)
 
-apparel_subset_colors = {'Bottomwear':'#808080','Topwear':'#008B8B','Dress':'#8B0000', 'Saree':'orange', 'Loungewear and Nightwear':'#F08080', 'Innerwear':'#BA55D3', 'Apparel Set':'orange', 'Socks':'orange'  }
+apparel_subset_colors = {'Bottomwear':'red','Topwear':'blue','Dress':'orange', 'Saree':'magenta', 'Loungewear and Nightwear':'green', 'Innerwear':'grey', 'Apparel Set':'green', 'Socks':'green'  }
 BW_apparel_df['colors'] = BW_apparel_df.loc[:,'subCategory'].apply(lambda x: apparel_subset_colors[x])
 
 fig1, ax = plt.subplots(figsize=(6,6))
