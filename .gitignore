@@ -1,5 +1,8 @@
-data
 __MACOSX/
 __pycache__/
 data.zip
+.ipynb_checkpoints/
+.DS_Store
+__pycache__
 data2
+data
