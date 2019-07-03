@@ -55,13 +55,26 @@ pic_df = pic_df[pic_df.index.isin(df_idx)]
 #double check this is True:
 pic_idx = df_idx
 '''
+def make_subset_wearable(df, pic_df):
+    # make a wearable subset
+    wearable_list = ['Apparel', 'Accessories', 'Footwear']
+    wearable_df = df[df['masterCategory'].isin(wearable_list)]
 
-# make a wearable subset
-wearable_list = ['Apparel', 'Accessories', 'Footwear']
-wearable_df = df[df['masterCategory'].isin(wearable_list)]
+    wear_idx = list(wearable_df.index)
+    wear_pics = pic_df[pic_df.index.isin(wear_idx)]
+    if set(wear_pics.index) == set(wearable_df.index):
+        return wear_pics
+    else: 
+        return "You Done Messed Up Now"
 
-wear_idx = list(wearable_df.index)
-wear_pics = pic_df[pic_df.index.isin(wear_idx)]
+def make_subset_apparel(df, pic_df):
+    apparel_df = df[df['masterCategory']=='Apparel']
+    apparel_idx = list(apparel_df.index)
+    apparel_pics = pic_df[pic_df.index.isin(apparel_idx)]
+    if set(apparel_pics.index) == set(apparel_df.index):
+        return apparel_pics
+    else: 
+        return "You Done Messed Up Now"
 
 # print(wear_pics.head())
 # print(images_arr.shape)

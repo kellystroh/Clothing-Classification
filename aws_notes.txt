@@ -1,0 +1,18 @@
+AWS related codes used during this project: 
+
+# set up config file to make entry easy
+# type into terminal:
+code ~/.ssh/config
+
+# after copying format in config file, enter it with: 
+ssh server2
+# server2 is name given in config file
+
+# copy files into AWS
+scp -i ~/.ssh/g91_Seattle.pem <data.zip> ubuntu@ec2-18-191-236-203.us-east-2.compute.amazonaws.com:Clothing-Clusters
+
+# copy folder into AWS
+scp -r -i ~/.ssh/g91_Seattle.pem <data.zip> ubuntu@ec2-18-191-236-203.us-east-2.compute.amazonaws.com:Clothing-Clusters
+
+
+# type 'top' in extra window of AWS server to watch use of memory 
