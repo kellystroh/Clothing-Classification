@@ -7,12 +7,13 @@ import glob
 
 df = pd.read_csv('data/styles.csv', error_bad_lines=False)
 
+
 all_img = []
 for i, ix in enumerate( df.index ):
     if i%1000==0:
         print(i, len(df))
     
-    fn = r'/Users/Kelly/galvanize/week8/data/images/{}.jpg'.format(ix)
+    fn = r'data/images/{}.jpg'.format(ix)
     try:
         img = imageio.imread(fn)
         if img.shape!=(80, 60, 3):
