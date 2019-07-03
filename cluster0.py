@@ -7,6 +7,8 @@ from subset_df import apparel_subset, accessory_subset, shoe_subset, wearable_su
 
 from sklearn.decomposition import PCA
 
+pca = PCA(n_components=2)
+
 full_pca = pca.fit_transform(bw_img)
 masterCat_colors = {'Apparel':'#008B8B','Accessories':'#808080','Footwear':'#8B0000', 'Personal Care':'magenta', 'Free Items':'magenta', 'Sporting Goods':'magenta', 'Home':'magenta'}
 df['colors'] = df['masterCategory'].apply(lambda x: masterCat_colors[x])
