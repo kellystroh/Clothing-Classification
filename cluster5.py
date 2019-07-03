@@ -10,10 +10,10 @@ from sklearn.decomposition import PCA
 
 pca = PCA(n_components=2)
 
-wear_df, wear_img = wearable_subset(df, bw_img)
+wear_df, wear_img = wearable_subset[0:10000](df, bw_img)
 wear_pca = pca.fit_transform(wear_img)
 wearable_colors = {'Apparel':'#008B8B','Accessories':'#808080','Footwear':'#8B0000'}
 wear_df['colors'] = wear_df['masterCategory'].apply(lambda x: wearable_colors[x])
 fig5, ax = plt.subplots(figsize=(6,6))
 ax.scatter( *wear_pca.T, s=.25 , color=wear_df['colors'])
-fig5.savefig('fig5.png')
+fig5.savefig('fig5b.png')
