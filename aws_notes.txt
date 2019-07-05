@@ -14,5 +14,8 @@ scp -i ~/.ssh/g91_Seattle.pem <data.zip> ubuntu@ec2-18-191-236-203.us-east-2.com
 # copy folder into AWS
 scp -r -i ~/.ssh/g91_Seattle.pem <data.zip> ubuntu@ec2-18-191-236-203.us-east-2.compute.amazonaws.com:Clothing-Clusters
 
+# common error message when installing:
+# E: Package 'ipython' has no installation candidate
+sudo apt-get update
 
 # type 'top' in extra window of AWS server to watch use of memory 

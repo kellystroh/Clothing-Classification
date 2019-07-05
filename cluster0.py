@@ -16,3 +16,4 @@ fig0, ax = plt.subplots(figsize=(6,6))
 ax.scatter( *full_pca.T, s=.1 , color=df['colors'])
 fig0.savefig('fig0.png')
 
+
