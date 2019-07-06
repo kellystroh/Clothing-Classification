@@ -7,8 +7,8 @@ from full_df import df, bw_img, all_img
 print('data loaded')
 from subset_df import wearable_subset, top2_subset
 
-df_wear, bw_wear_img = wearable_subset(df.iloc[0:500,:], bw_img[0:500,:])
-df_wear2, wear_img = wearable_subset(df.iloc[0:500,:], all_img[0:500,:])
+df_wear, bw_wear_img = wearable_subset(df, bw_img)
+df_wear2, wear_img = wearable_subset(df, all_img)
 print('data subsetted')
 
 from sklearn.cluster import AgglomerativeClustering
