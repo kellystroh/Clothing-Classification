@@ -31,8 +31,8 @@ clust3_df = pd.DataFrame(clust_by_cat1, index=['Apparel','Accessories', 'Footwea
 #clust3_bw_df.to_pickle("agglo3_bw.pkl")
 print(clust3_df.columns)
 print(clust3_df.index)
-x = np.array(clust2_df)
-x.save('agglo_clust2')
+x = np.array(clust3_df)
+x.save('agglo_clust3')
 
 print('pickle saved')
 
