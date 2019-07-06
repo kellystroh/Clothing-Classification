@@ -32,7 +32,7 @@ clust3_df = pd.DataFrame(clust_by_cat1, index=['Apparel','Accessories', 'Footwea
 print(clust3_df.columns)
 print(clust3_df.index)
 x = np.array(clust3_df)
-x.save('agglo_clust3')
+np.save('agglo_clust3', x)
 
 print('pickle saved')
 
