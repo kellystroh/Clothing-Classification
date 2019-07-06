@@ -7,8 +7,8 @@ print('data loaded')
 
 from subset_df import top2_subset
 
-df_top, bw_top_img = top2_subset(df[0:500], bw_img[0:500])
-df_top2, top2_img = top2_subset(df[0:500], all_img[0:500])
+df_top, bw_top_img = top2_subset(df.iloc[0:500], bw_img[0:500])
+df_top2, top2_img = top2_subset(df.iloc[0:500], all_img[0:500])
 print('data subsetted & truncated')
 
 from sklearn.cluster import AgglomerativeClustering

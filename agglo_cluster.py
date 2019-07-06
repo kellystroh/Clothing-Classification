@@ -6,15 +6,10 @@ all_img = np.load('data/image_array.npy')
 print('data loaded')
 from subset_df import wearable_subset, top2_subset
 
-df_wear, bw_wear_img = wearable_subset(df, bw_img)
-df_wear2, wear_img = wearable_subset(df, all_img)
+df_wear, bw_wear_img = wearable_subset(df.iloc[0:500,:], bw_img[0:500,:])
+df_wear2, wear_img = wearable_subset(df.iloc[0:500,:], all_img[0:500,:])
 print('data subsetted')
 
-df_wear = df_wear.iloc[0:1000, :]
-bw_wear_img = bw_wear_img[0:1000, :]
-df_wear2 = df_wear2.iloc[0:1000, :]
-wear_img = wear_img[0:1000, :]
-print('data truncated')
 from sklearn.cluster import AgglomerativeClustering
 
 ### BW WEARABLE
