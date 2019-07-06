@@ -1,8 +1,9 @@
 import numpy as np
 import pandas as pd
-df = pd.read_csv('data/styles.csv', error_bad_lines=False)
-bw_img = np.load('data/bw_array.npy')
-all_img = np.load('data/image_array.npy')
+from full_df import df, bw_img, all_img
+# df = pd.read_csv('data/styles.csv', error_bad_lines=False)
+# bw_img = np.load('data/bw_array.npy')
+# all_img = np.load('data/image_array.npy')
 print('data loaded')
 from subset_df import wearable_subset, top2_subset
 
