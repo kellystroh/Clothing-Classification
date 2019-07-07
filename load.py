@@ -22,7 +22,6 @@ for i, ix in enumerate( df.index ):
         all_img.append( [0]*(60*80*3) )
 
 all_img = np.stack(all_img)
-np.save('image_array', all_img)
-
 bw_img = all_img.reshape(-1, 80, 60, 3).mean(3).reshape(-1, 80*60)
-np.save('bw_array', bw_img)
+
+np.savez_compressed('image_array', a=all_img, b=bw_img)
